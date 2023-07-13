@@ -1,15 +1,4 @@
-<!--
-=========================================================
-* Material Kit 2 - v3.0.4
-=========================================================
 
-* Product Page:  https://www.creative-tim.com/product/material-kit 
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -35,8 +24,7 @@
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   <link rel="stylesheet" href="style.css">
-  <title> Página 3 - Formulario de Estudio del Cultivo de Maíz</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title> Página 2 - Formulario de Estudio del Cultivo de Maíz</title>
 </head>
 
 <body class="blog-author bg-gray-200">
@@ -225,22 +213,38 @@
   <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <!-- CARD -->
 
-    <section class="py-3">
+<body>
+  <h1>Formulario de Estudio del Cultivo de Maíz - Página 2</h1>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="mb-5">Análisis</h3>
-          </div>
-        </div>
+  <form id="myForm" action="formulario3.html" method="post">
+    <h3>Análisis del Suelo:</h3>
+    <div>
+      <label for="textura">Textura del Suelo:</label>
+      <input type="text" id="textura" name="textura" required>
+    </div>
 
-        <h1>Resultado del Estudio del Cultivo de Maíz</h1>
+    <div>
+      <label for="ph">pH del Suelo:</label>
+      <input type="number" id="ph" name="ph" required step="0.1">
+    </div>
 
-        <div id="resultado">
-          <!-- Aquí se mostrará el resultado generado por JavaScript -->
-        </div>
-      </div>
-    </section>
+    <div>
+      <label for="nitrogeno">Contenido de Nitrógeno:</label>
+      <input type="number" id="nitrogeno" name="nitrogeno" required>
+    </div>
+
+    <div>
+      <label for="fosforo">Contenido de Fósforo:</label>
+      <input type="number" id="fosforo" name="fosforo" required>
+    </div>
+
+    <div>
+      <label for="potasio">Contenido de Potasio:</label>
+      <input type="number" id="potasio" name="potasio" required>
+    </div>
+
+    <button type="submit">Siguiente</button>
+  </form>
 
 
     
@@ -339,6 +343,7 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

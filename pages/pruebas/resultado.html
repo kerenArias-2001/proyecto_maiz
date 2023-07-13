@@ -1,15 +1,4 @@
-<!--
-=========================================================
-* Material Kit 2 - v3.0.4
-=========================================================
 
-* Product Page:  https://www.creative-tim.com/product/material-kit 
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -18,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/imagenes/logo_maiz.png">
   <link rel="icon" type="image/png" href="../assets/img/imagenes/logo_maiz.png">
-  <title>
-    Pasos
-  </title>
+
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -37,6 +24,7 @@
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   <link rel="stylesheet" href="style.css">
+  <title> Página 2 - Formulario de Estudio del Cultivo de Maíz</title>
 </head>
 
 <body class="blog-author bg-gray-200">
@@ -222,170 +210,33 @@
   </header>
   <!-- fin header -->
 
-  <div class="card card-body mx-3 mx-md-4 mt-n6 mb-4">
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
     <!-- CARD -->
 
-    <section class="py-3">
+    <h1>Resultado del Estudio del Cultivo de Maíz</h1>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="mb-5">Análisis del suelo</h3>
-          </div>
-        </div>
-
-        <form action="">
-
-          <div class="row me-4 card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
-            <div class="row">
-              <div class="col-md-10">
-                <style>
-                  /* Estilos adicionales para mejorar la apariencia */
-                  body {
-                    font-family: Arial, sans-serif;
-                  }
-                  
-                  label {
-                    display: block;
-                    margin-top: 10px;
-                  }
-                  
-                  input[type="text"], input[type="number"] {
-                    width: 200px;
-                  }
-                  
-                  table {
-                    border-collapse: collapse;
-                    width: 100%;
-                  }
-                  
-                  th, td {
-                    border: 1px solid #dddddd;
-                    text-align: left;
-                    padding: 8px;
-                  }
-                </style>
-
-                <h2>Inventario de productos</h2>
-                
-                <form id="elementForm">
-                  <label for="elementName">Producto:</label>
-                  <input type="text" id="elementName" required>
-                  
-                  <label for="elementUnit">Unidad de medida:</label>
-                  <input type="text" id="elementUnit" required>
-                  
-                  <label for="elementQuantity">Cantidad:</label>
-                  <input type="number" id="elementQuantity" min="1" required>
-                  
-                  <label for="elementPrice">Valor unitario:</label>
-                  <input type="number" id="elementPrice" min="0" step="0.01" required><br><br>
-                  
-                  <button class="btn btn-outline-success" type="button" onclick="addElement()">Agregar Producto</button>
-                </form>
-                <h1></h1><br>
-              </div>
-            
-              <script>
-                function addElement() {
-                  // Obtener los valores ingresados por el usuario
-                  var elementName = document.getElementById("elementName").value;
-                  var elementUnit = document.getElementById("elementUnit").value;
-                  var elementQuantity = document.getElementById("elementQuantity").value;
-                  var elementPrice = document.getElementById("elementPrice").value;
-                  
-                  // Calcular el subtotal
-                  var subtotal = (elementQuantity * elementPrice).toFixed(2);
-                  
-                  // Crear una nueva fila en la tabla con los valores ingresados
-                  var table = document.getElementById("elementTable").getElementsByTagName('tbody')[0];
-                  var newRow = table.insertRow(table.rows.length);
-                  
-                  var cell1 = newRow.insertCell(0);
-                  var cell2 = newRow.insertCell(1);
-                  var cell3 = newRow.insertCell(2);
-                  var cell4 = newRow.insertCell(3);
-                  var cell5 = newRow.insertCell(4);
-                  
-                  cell1.innerHTML = elementName;
-                  cell2.innerHTML = elementUnit;
-                  cell3.innerHTML = elementQuantity;
-                  cell4.innerHTML = "$" + elementPrice;
-                  cell5.innerHTML = "$" + subtotal;
-                  
-                  // Actualizar el total
-                  var totalAmountCell = document.getElementById("totalAmount");
-                  var currentTotal = parseFloat(totalAmountCell.innerText);
-                  totalAmountCell.innerText = (currentTotal + parseFloat(subtotal)).toFixed(2);
-                  
-                  // Limpiar los campos del formulario
-                  document.getElementById("elementName").value = "";
-                  document.getElementById("elementUnit").value = "";
-                  document.getElementById("elementQuantity").value = "";
-                  document.getElementById("elementPrice").value = "";
-                }
-              </script>
-            </div>
-
-          </div>
-
-          <!-- separador -->
-
-          <div class="row card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
-            <div class="row">
-              <div class="col-md-12">
-                <h3>Listado de productos</h3>
-                  <table id="elementTable">
-                    <thead>
-                      <tr>
-                        <th>Elemento</th>
-                        <th>Unidad de medida</th>
-                        <th>Cantidad</th>
-                        <th>Valor unitario</th>
-                        <th>Subtotal</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colspan="4" align="right"><strong>Total:</strong></td>
-                        <td id="totalAmount">0</td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                  <h1></h1>
-                  <br>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- separador -->
-        </form>
-      </div>
-    </section>
-
-
+  <div id="resultado">
+    <!-- Aquí se mostrará el resultado generado por JavaScript -->
+  </div>
     
     <!-- paginacion -->
-    <div class="row card text-center page-header mt-3"  style="width: 25rem; min-width: 100px; height: 70px; min-height: 70px; position: sticky; left: 35.3%; bottom: 5px; z-index: 100;">
+    <div class="row card text-center page-header mt-3"  style="width: 20rem; min-width: 100px; height: 70px; min-height: 70px; position: sticky; left: 38.3%; bottom: 5px; z-index: 100;">
       <div class="col-12 mx-auto " style="padding-top: 10px;">
-        <a href="paso1.html"><button class="btn btn-outline-success btn-icon" type="button">
+        <a href="paso1.html"><button class="btn bg-gradient-success btn-icon btn-lg" type="button">
           <div class="d-flex align-items-center">
-            Anterior
+            Paso 1
           </div>
         </button></a>
     
-        <button class="btn bg-gradient-success btn-icon btn-lg" type="button">
+        <a href="paso2.html"><button class="btn btn-outline-success btn-icon " type="button">
           <div class="d-flex align-items-center">
             Paso 2
           </div>
-        </button>
+        </button></a>
     
-        <a href="paso3.html"><button class="btn btn-outline-success btn-icon" type="button">
+        <a href="paso3.html"><button class="btn btn-outline-success btn-icon btn-sm" type="button">
           <div class="d-flex align-items-center">
-            Siguiente
+            paso 3
           </div>
         </button></a>
       </div>
@@ -455,6 +306,7 @@
   </footer>
   <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
   <!--   Core JS Files   -->
+  <script src="script.js"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -462,6 +314,7 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
