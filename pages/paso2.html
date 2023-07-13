@@ -283,32 +283,45 @@
                   
                   <div id="alquilerForm" style="display: none;">
                     <h4>ALQUILER</h4>
+                    
+                    <div class="input-group input-group-static mb-2">
                     <label for="productNameAlquiler">Nombre del producto:</label>
-                    <input type="text" id="productNameAlquiler" required>
-                    
+                    <input type="text" class="form-control" id="productNameAlquiler" placeholder="Dijite nombre" required>
+                    </div>
+
+                    <div class="input-group input-group-static mb-2">
                     <label for="quantityAlquiler">Cantidad:</label>
-                    <input type="number" id="quantityAlquiler" min="1" required>
-                    
+                    <input type="number" class="form-control" id="quantityAlquiler" min="1"  placeholder="Dijite" required>
+                    </div>
+
+                    <div class="input-group input-group-static mb-2">
                     <label for="pricePerUnitAlquiler">Precio por unidad:</label>
-                    <input type="number" id="pricePerUnitAlquiler" min="0" step="0.01" required>
-                    
+                    <input type="number" class="form-control" placeholder="Dijite" id="pricePerUnitAlquiler" min="0" step="0.01" required>
+                    </div>
+                    <div class="input-group input-group-static mb-2">
                     <label for="rentalTime">Tiempo de alquiler:</label>
-                    <input type="text" id="rentalTime" required>
-                    <h1></h1>
+                    <input type="text" class="form-control" placeholder="Dijite" id="rentalTime" required>
+                    </div>
                     <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
                   </div>
                   
                   <div id="comprarForm" style="display: none;">
                     <h4>COMPRAR</h4>
+                    <div class="input-group input-group-static mb-2">
                     <label for="productNameComprar">Nombre del producto:</label>
-                    <input type="text" id="productNameComprar" required>
-                    
+                    <input type="text" class="form-control" placeholder="Dijite" id="productNameComprar" required>
+                    </div>
+
+                    <div class="input-group input-group-static mb-2">
                     <label for="quantityComprar">Cantidad:</label>
-                    <input type="number" id="quantityComprar" min="1" required>
-                    
+                    <input type="number" class="form-control" placeholder="Dijite" id="quantityComprar" min="1" required>
+                    </div>
+
+                    <div class="input-group input-group-static mb-2">
                     <label for="pricePerUnitComprar">Precio por unidad:</label>
-                    <input type="number" id="pricePerUnitComprar" min="0" step="0.01" required>
-                    <h1></h1>
+                    <input type="number" class="form-control" placeholder="Dijite" id="pricePerUnitComprar" min="0" step="0.01" required>
+                    </div>
+
                     <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
                   </div>
                 </form>

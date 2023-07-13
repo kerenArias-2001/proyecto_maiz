@@ -230,7 +230,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h3 class="mb-5">ANÁLISIS DEL TERRENO</h3>
+            <h3 class="mb-3">ANÁLISIS DEL TERRENO</h3>
           </div>
         </div>
 
@@ -246,38 +246,99 @@
         </style>
 
         
-          <div class="row me-4 card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
-            <form id="soilStudyForm" enctype="multipart/form-data">
+        <div class="row me-4 mb-2 card" style="width: 80%;left: 10%; height: auto;float: left; border: 1px solid #4CAF50;">
+          <form id="soilStudyForm" enctype="multipart/form-data">
 
-              <div class="row">
-                <h2>Registro de estudio</h2>
+            <div class="row mt-3 ms-5">
+              
 
-                <div class="col-md-4">
-                  <div class="input-group input-group-static mb-4 py-3">
-                    <label for="studyPrice">Gastos de estudios</label>
-                    <input type="number" class="form-control" placeholder="Dijite el precio" id="studyPrice" min="0" step="0.01" required>
-                  </div>
+              <div class="col-md-3 me-3">
+                <div class="input-group input-group-static mb-4 py-3">
+                  <label for="studyPrice">Gastos de estudios</label>
+                  <input type="number" class="form-control" placeholder="Dijite el precio" id="studyPrice" min="0" step="0.01" required>
                 </div>
+              </div>
 
-                <div class="col-md-6">
-                  <div class="input-group input-group-static mb-4 py-3">
-                    <label for="receiptFile">Archivo de comprobante:</label>
-                    <input type="file" class="btn-outline-success" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" required>
-                  </div>
+              <div class="col-md-4 me-5">
+                <div class="input-group input-group-static mb-2 mt-3">
+                  <label for="receiptFile">Archivo de comprobante:</label>
                 </div>
-
+                  <input type="file" class="btn-outline-success" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" required>
                 
               </div>
-              <button class="btn btn-outline-success" type="submit">Guardar estudio de suelo</button>
-            </form>
-            <div class="preview" id="previewSection" style="display: none;">
-              <h3>Vista previa del archivo:</h3>
-              <div id="filePreview"></div>
+
+              <div class="col-md-4">
+                <div class="input-group input-group-static mb-2 mt-4">
+                  <button class="btn btn-outline-success" type="submit">Guardar</button>
+                </div>                
+              </div>
+
+              
             </div>
+          </form>
+          <div class="preview" id="previewSection" style="display: none;">
+            <h3>Vista previa del archivo:</h3>
+            <div id="filePreview"></div>
           </div>
+        </div>
 
         
 
+          <!-- separador -->
+
+        <div class="row me-4 card" style="width: 49%; height: auto; float: left; border: 1px solid #4CAF50;">
+          <div class="row">
+            <h2>Registro de estudio</h2>
+            <div class="col-md-6">
+              <div class="input-group input-group-static mb-4 py-3">
+                <label>Textura del suelo</label>
+                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
+                  aria-label=".form-select-lg example">
+                  <option selected>Seleccionar</option>
+                  <option value="1">tipodesuelo</option>
+                  <option value="2">tipodesuelo</option>
+                  <option value="3">tipodesuelo</option>
+                  <option value="4">tipodesuelo</option>
+                  <option value="5">tipodesuelo</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group input-group-static mb-4 py-3">
+                <label>PH del suelo</label>
+                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
+                  aria-label=".form-select-lg example">
+                  <option selected>Seleccionar</option>
+                  <option value="1">6</option>
+                  <option value="2">6,5</option>
+                  <option value="3">7</option>
+                  <option value="4">7,5</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 ps-md-2">
+              <div class="input-group input-group-static mb-4">
+                <label>Cantidad de hectáreas</label>
+                <input type="number" class="form-control" placeholder="Dijite por catidad">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group input-group-static mb-4">
+                <label>Nombre de fertilizante</label>
+                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
+                  aria-label=".form-select-lg example">
+                  <option selected>Seleccionar</option>
+                  <option value="1">tipodesuelo</option>
+                  <option value="2">tipodesuelo</option>
+                  <option value="3">tipodesuelo</option>
+                  <option value="4">tipodesuelo</option>
+                  <option value="5">tipodesuelo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      
           <!-- separador -->
 
           <div class="row card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
@@ -332,8 +393,11 @@
               </div>
             </div>
           </div>
+        
+            <!-- separador -->  
+
+
       </div>
-          <!-- separador -->
       
     </section>
 
