@@ -230,88 +230,59 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h3 class="mb-5">Análisis</h3>
+            <h3 class="mb-5">ANÁLISIS DEL TERRENO</h3>
           </div>
         </div>
 
-        <form action="">
+        <style>
+          .preview {
+            margin-top: 20px;
+          }
+          
+          .preview img {
+            max-width: 300px;
+            max-height: 300px;
+          }
+        </style>
 
+        
           <div class="row me-4 card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
-            <div class="row">
-              <div class="col-md-12">
-                
-                <style>
-                  .preview {
-                    margin-top: 20px;
-                  }
-                  
-                  .preview img {
-                    max-width: 300px;
-                    max-height: 300px;
-                  }
-                </style>
-                <h2>Registro de estudio de suelo</h2>
-                
-                <form id="soilStudyForm" enctype="multipart/form-data">
-                  <label for="studyPrice">Gastado en estudio:</label>
-                  <input type="number" id="studyPrice" min="0" step="0.01" required><br>
-                  
-                  <label for="receiptFile">Archivo de comprobante:</label><br>
-                  <input type="file" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" required>
-                  <br><h1></h1><br>
-                  <button class="btn btn-outline-success" type="submit">Guardar estudio de suelo</button>
-                </form>
-                <h1></h1><br>
-                <div class="preview" id="previewSection" style="display: none;">
-                  <h3>Vista previa del archivo:</h3>
-                  <div id="filePreview"></div>
+            <form id="soilStudyForm" enctype="multipart/form-data">
+
+              <div class="row">
+                <h2>Registro de estudio</h2>
+
+                <div class="col-md-4">
+                  <div class="input-group input-group-static mb-4 py-3">
+                    <label for="studyPrice">Gastos de estudios</label>
+                    <input type="number" class="form-control" placeholder="Dijite el precio" id="studyPrice" min="0" step="0.01" required>
+                  </div>
                 </div>
+
+                <div class="col-md-6">
+                  <div class="input-group input-group-static mb-4 py-3">
+                    <label for="receiptFile">Archivo de comprobante:</label>
+                    <input type="file" class="btn-outline-success" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                  </div>
+                </div>
+
                 
-                <script>
-                  var form = document.getElementById("soilStudyForm");
-                  form.addEventListener("submit", function(event) {
-                    event.preventDefault();
-                    
-                    // Obtener el precio gastado
-                    var studyPrice = document.getElementById("studyPrice").value;
-                    
-                    // Obtener el archivo adjunto
-                    var receiptFile = document.getElementById("receiptFile").files[0];
-                    
-                    // Mostrar la vista previa del archivo
-                    var previewSection = document.getElementById("previewSection");
-                    var filePreview = document.getElementById("filePreview");
-                    
-                    if (receiptFile) {
-                      previewSection.style.display = "block";
-                      
-                      if (receiptFile.type.includes("image")) {
-                        // Si el archivo es una imagen, mostrarla como imagen
-                        filePreview.innerHTML = '<img src="' + URL.createObjectURL(receiptFile) + '" alt="Vista previa">';
-                      } else {
-                        // Si el archivo no es una imagen, mostrar el nombre del archivo
-                        filePreview.textContent = receiptFile.name;
-                      }
-                    }
-                    
-                    // Realizar las acciones necesarias con los datos
-                    // Aquí puedes agregar tu lógica para guardar la información y procesar el archivo adjunto
-                    
-                    // Limpiar los campos del formulario y ocultar la vista previa
-                    form.reset();
-                    previewSection.style.display = "none";
-                  });
-                </script>
-
               </div>
+              <button class="btn btn-outline-success" type="submit">Guardar estudio de suelo</button>
+            </form>
+            <div class="preview" id="previewSection" style="display: none;">
+              <h3>Vista previa del archivo:</h3>
+              <div id="filePreview"></div>
             </div>
-
           </div>
+
+        
 
           <!-- separador -->
 
           <div class="row card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
             <div class="row">
+              <h2>Registro de estudio</h2>
               <div class="col-md-6">
                 <div class="input-group input-group-static mb-4 py-3">
                   <label>Textura del suelo</label>
@@ -360,14 +331,11 @@
                 </div>
               </div>
             </div>
-
           </div>
-
-          <!-- separador -->
-        </form>
       </div>
+          <!-- separador -->
+      
     </section>
-
 
     
     <!-- paginacion -->

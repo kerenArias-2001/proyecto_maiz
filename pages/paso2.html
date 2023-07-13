@@ -234,11 +234,11 @@
           </div>
         </div>
 
-        <form action="">
 
-          <div class="row me-4 card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
+          <div class="row me-4 card" style="width: 29%; height: auto;float: left; border: 1px solid #4CAF50;">
             <div class="row">
               <div class="col-md-10">
+                
                 <style>
                   /* Estilos adicionales para mejorar la apariencia */
                   body {
@@ -266,39 +266,91 @@
                   }
                 </style>
 
-                <h2>Inventario de productos</h2>
+                <h2>Inventario</h2>
                 
-                <form id="elementForm">
-                  <label for="elementName">Producto:</label>
-                  <input type="text" id="elementName" required>
+                <form id="productForm">
+
+                  <div class="col-md-10">
+                    <div class="input-group input-group-static">
+                      <label for="transactionType">Tipo de transacción:</label>
+                      <select id="transactionType" onchange="changeForm()" class="form-select form-select-lg mb-2 form-control" aria-label=".form-select-lg example">
+                        <option> selecciona </option>
+                        <option value="alquilar">Alquiler</option>
+                        <option value="comprar">Comprar</option>
+                      </select>
+                    </div>
+                  </div>
                   
-                  <label for="elementUnit">Unidad de medida:</label>
-                  <input type="text" id="elementUnit" required>
+                  <div id="alquilerForm" style="display: none;">
+                    <h4>ALQUILER</h4>
+                    <label for="productNameAlquiler">Nombre del producto:</label>
+                    <input type="text" id="productNameAlquiler" required>
+                    
+                    <label for="quantityAlquiler">Cantidad:</label>
+                    <input type="number" id="quantityAlquiler" min="1" required>
+                    
+                    <label for="pricePerUnitAlquiler">Precio por unidad:</label>
+                    <input type="number" id="pricePerUnitAlquiler" min="0" step="0.01" required>
+                    
+                    <label for="rentalTime">Tiempo de alquiler:</label>
+                    <input type="text" id="rentalTime" required>
+                    <h1></h1>
+                    <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
+                  </div>
                   
-                  <label for="elementQuantity">Cantidad:</label>
-                  <input type="number" id="elementQuantity" min="1" required>
-                  
-                  <label for="elementPrice">Valor unitario:</label>
-                  <input type="number" id="elementPrice" min="0" step="0.01" required><br><br>
-                  
-                  <button class="btn btn-outline-success" type="button" onclick="addElement()">Agregar Producto</button>
+                  <div id="comprarForm" style="display: none;">
+                    <h4>COMPRAR</h4>
+                    <label for="productNameComprar">Nombre del producto:</label>
+                    <input type="text" id="productNameComprar" required>
+                    
+                    <label for="quantityComprar">Cantidad:</label>
+                    <input type="number" id="quantityComprar" min="1" required>
+                    
+                    <label for="pricePerUnitComprar">Precio por unidad:</label>
+                    <input type="number" id="pricePerUnitComprar" min="0" step="0.01" required>
+                    <h1></h1>
+                    <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
+                  </div>
                 </form>
                 <h1></h1><br>
               </div>
             
               <script>
-                function addElement() {
-                  // Obtener los valores ingresados por el usuario
-                  var elementName = document.getElementById("elementName").value;
-                  var elementUnit = document.getElementById("elementUnit").value;
-                  var elementQuantity = document.getElementById("elementQuantity").value;
-                  var elementPrice = document.getElementById("elementPrice").value;
+                function changeForm() {
+                  var transactionType = document.getElementById("transactionType").value;
                   
-                  // Calcular el subtotal
-                  var subtotal = (elementQuantity * elementPrice).toFixed(2);
+                  var alquilerForm = document.getElementById("alquilerForm");
+                  var comprarForm = document.getElementById("comprarForm");
                   
-                  // Crear una nueva fila en la tabla con los valores ingresados
-                  var table = document.getElementById("elementTable").getElementsByTagName('tbody')[0];
+                  if (transactionType === "alquilar") {
+                    alquilerForm.style.display = "block";
+                    comprarForm.style.display = "none";
+                  } else if (transactionType === "comprar") {
+                    alquilerForm.style.display = "none";
+                    comprarForm.style.display = "block";
+                  }
+                }
+                
+                function addProduct() {
+                  var transactionType = document.getElementById("transactionType").value;
+                  
+                  var productName, quantity, pricePerUnit, additionalInfo;
+                  
+                  if (transactionType === "alquilar") {
+                    productName = document.getElementById("productNameAlquiler").value;
+                    quantity = document.getElementById("quantityAlquiler").value;
+                    pricePerUnit = document.getElementById("pricePerUnitAlquiler").value;
+                    additionalInfo = document.getElementById("rentalTime").value;
+                  } else if (transactionType === "comprar") {
+                    productName = document.getElementById("productNameComprar").value;
+                    quantity = document.getElementById("quantityComprar").value;
+                    pricePerUnit = document.getElementById("pricePerUnitComprar").value;
+                    additionalInfo = "Comprar";
+                  }
+                  
+                  var subtotal = (quantity * pricePerUnit).toFixed(2);
+                  
+                  var table = document.getElementById("productTable").getElementsByTagName('tbody')[0];
                   var newRow = table.insertRow(table.rows.length);
                   
                   var cell1 = newRow.insertCell(0);
@@ -307,22 +359,30 @@
                   var cell4 = newRow.insertCell(3);
                   var cell5 = newRow.insertCell(4);
                   
-                  cell1.innerHTML = elementName;
-                  cell2.innerHTML = elementUnit;
-                  cell3.innerHTML = elementQuantity;
-                  cell4.innerHTML = "$" + elementPrice;
+                  cell1.innerHTML = productName;
+                  cell2.innerHTML = quantity;
+                  cell3.innerHTML = "$" + pricePerUnit;
+                  cell4.innerHTML = additionalInfo;
                   cell5.innerHTML = "$" + subtotal;
                   
-                  // Actualizar el total
                   var totalAmountCell = document.getElementById("totalAmount");
                   var currentTotal = parseFloat(totalAmountCell.innerText);
                   totalAmountCell.innerText = (currentTotal + parseFloat(subtotal)).toFixed(2);
                   
-                  // Limpiar los campos del formulario
-                  document.getElementById("elementName").value = "";
-                  document.getElementById("elementUnit").value = "";
-                  document.getElementById("elementQuantity").value = "";
-                  document.getElementById("elementPrice").value = "";
+                  resetForm(transactionType);
+                }
+                
+                function resetForm(transactionType) {
+                  if (transactionType === "alquilar") {
+                    document.getElementById("productNameAlquiler").value = "";
+                    document.getElementById("quantityAlquiler").value = "";
+                    document.getElementById("pricePerUnitAlquiler").value = "";
+                    document.getElementById("rentalTime").value = "";
+                  } else if (transactionType === "comprar") {
+                    document.getElementById("productNameComprar").value = "";
+                    document.getElementById("quantityComprar").value = "";
+                    document.getElementById("pricePerUnitComprar").value = "";
+                  }
                 }
               </script>
             </div>
@@ -331,38 +391,38 @@
 
           <!-- separador -->
 
-          <div class="row card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
+          <div class="row card" style="width: 70%; height: auto;float: left; border: 1px solid #4CAF50;">
             <div class="row">
               <div class="col-md-12">
                 <h3>Listado de productos</h3>
-                  <table id="elementTable">
-                    <thead>
-                      <tr>
-                        <th>Elemento</th>
-                        <th>Unidad de medida</th>
-                        <th>Cantidad</th>
-                        <th>Valor unitario</th>
-                        <th>Subtotal</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colspan="4" align="right"><strong>Total:</strong></td>
-                        <td id="totalAmount">0</td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                  <h1></h1>
-                  <br>
+                <table id="productTable">
+                  <thead>
+                    <tr>
+                      <th>Nombre del producto</th>
+                      <th>Cantidad</th>
+                      <th>Precio por unidad</th>
+                      <th>Tipo de transacción</th>
+                      <th>Subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="4" align="right"><strong>Total:</strong></td>
+                      <td id="totalAmount">0</td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <h1></h1>
+                <br>
               </div>
             </div>
 
           </div>
 
           <!-- separador -->
-        </form>
+
       </div>
     </section>
 

@@ -1,106 +1,34 @@
-
-  <style>
-    /* Estilos adicionales para mejorar la apariencia */
-    body {
-      font-family: Arial, sans-serif;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de cambio de texto según opción seleccionada</title>
+    <script>
+        function cambiarTexto() {
+            var select = document.getElementById("opciones");
+            var texto = document.getElementById("texto-cambiante");
+            
+            // Obtener el valor seleccionado
+            var opcionSeleccionada = select.value;
+            
+            // Actualizar el texto según la opción seleccionada
+            if (opcionSeleccionada === "dia") {
+                texto.textContent = "Tiempo por día";
+            } else if (opcionSeleccionada === "mes") {
+                texto.textContent = "Tiempo por mes";
+            } else if (opcionSeleccionada === "año") {
+                texto.textContent = "Tiempo por año";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Selecciona una opción:</h1>
+    <select id="opciones" onchange="cambiarTexto()">
+        <option value="dia">Día</option>
+        <option value="mes">Mes</option>
+        <option value="año">Año</option>
+    </select>
     
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    
-    input[type="text"], input[type="number"] {
-      width: 200px;
-    }
-    
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    th, td {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-  </style>
-  
-  <form id="elementForm">
-    <label for="elementName">Elemento:</label>
-    <input type="text" id="elementName" required>
-    
-    <label for="elementUnit">Unidad de medida:</label>
-    <input type="text" id="elementUnit" required>
-    
-    <label for="elementQuantity">Cantidad:</label>
-    <input type="number" id="elementQuantity" min="1" required>
-    
-    <label for="elementPrice">Valor unitario:</label>
-    <input type="number" id="elementPrice" min="0" step="0.01" required>
-    
-    <button type="button" onclick="addElement()">Agregar elemento</button>
-  </form>
-  
-  <h3>Tabla de elementos</h3>
-  
-  <table id="elementTable">
-    <thead>
-      <tr>
-        <th>Elemento</th>
-        <th>Unidad de medida</th>
-        <th>Cantidad</th>
-        <th>Valor unitario</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4" align="right"><strong>Total:</strong></td>
-        <td id="totalAmount">0</td>
-      </tr>
-    </tfoot>
-  </table>
-  
-  <script>
-    function addElement() {
-      // Obtener los valores ingresados por el usuario
-      var elementName = document.getElementById("elementName").value;
-      var elementUnit = document.getElementById("elementUnit").value;
-      var elementQuantity = document.getElementById("elementQuantity").value;
-      var elementPrice = document.getElementById("elementPrice").value;
-      
-      // Calcular el subtotal
-      var subtotal = (elementQuantity * elementPrice).toFixed(2);
-      
-      // Crear una nueva fila en la tabla con los valores ingresados
-      var table = document.getElementById("elementTable").getElementsByTagName('tbody')[0];
-      var newRow = table.insertRow(table.rows.length);
-      
-      var cell1 = newRow.insertCell(0);
-      var cell2 = newRow.insertCell(1);
-      var cell3 = newRow.insertCell(2);
-      var cell4 = newRow.insertCell(3);
-      var cell5 = newRow.insertCell(4);
-      
-      cell1.innerHTML = elementName;
-      cell2.innerHTML = elementUnit;
-      cell3.innerHTML = elementQuantity;
-      cell4.innerHTML = "$" + elementPrice;
-      cell5.innerHTML = "$" + subtotal;
-      
-      // Actualizar el total
-      var totalAmountCell = document.getElementById("totalAmount");
-      var currentTotal = parseFloat(totalAmountCell.innerText);
-      totalAmountCell.innerText = (currentTotal + parseFloat(subtotal)).toFixed(2);
-      
-      // Limpiar los campos del formulario
-      document.getElementById("elementName").value = "";
-      document.getElementById("elementUnit").value = "";
-      document.getElementById("elementQuantity").value = "";
-      document.getElementById("elementPrice").value = "";
-    }
-  </script>
-
+    <h2 id="texto-cambiante">Texto a cambiar</h2>
+</body>
+</html>
