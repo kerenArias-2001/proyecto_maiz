@@ -16,8 +16,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/imagenes/logo_maiz.png">
-  <link rel="icon" type="image/png" href="../assets/img/imagenes/logo_maiz.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/logo_maiz.png">
+  <link rel="icon" type="image/png" href="../assets/img/logo_maiz.png">
   <title>
     Pasos
   </title>
@@ -40,7 +40,7 @@
 
 </head>
 
-<body class="blog-author bg-gray-200">
+<body class="blog-author" style="background-image: url('../assets/img/fotosmaiz\ \(1\).jpg'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed">
 
   <!-- Navbar -->
   <div class="container position-sticky z-index-sticky top-0">
@@ -208,8 +208,8 @@
   <!-- fin Navbar -->
 
   <!-- header -->
-  <header>
-    <div class="page-header bg-gradient-success min-height-300" loading="lazy" style="background-image: url('../assets/img/terreno.jpg'); background-position-y: 20%">
+  <!-- <header>
+    <div class="page-header bg-gradient-success min-vh-90" loading="lazy" >
       <span class="mask bg-gradient-dark opacity-5"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -219,193 +219,186 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
   <!-- fin header -->
 
+  <style>
+    .preview {
+      margin-top: 20px;
+    }
+    
+    .preview img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+  </style>
     <!-- CARD -->
 
-    <section class="py-3">
+    <section class="mt-8">
 
-      <div class="container ">
-        
+        <div class="row mb-2 card opacity-9 mx-md-4">
 
-        <style>
-          .preview {
-            margin-top: 20px;
-          }
-          
-          .preview img {
-            max-width: 300px;
-            max-height: 300px;
-          }
-        </style>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-10 mx-auto border-radius-lg">
+                <div class="row"><h4 class="text-center mt-3">ANÁLISIS DEL TERRENO</h4>
+                  <div class="col-xl-6 col-md-5 px-5 z-index-2 position-relative">
+                    <div class="row ">
+                      <div class="input-group input-group-static py-3">
+                        <label for="studyPrice">Digite el Valor de la cotización</label>
+                        <input type="number" class="form-control" placeholder="Digite el precio" id="studyPrice" min="0" step="0.01" required>
+                      </div>
+                    </div>
+                  </div>
 
-        
-        <div class="row me-4 mb-2 card mt-n7" style="width: 80%;left: 10%; height: auto;">
-          <div class="row ">
-            <h3 class="mb-1 text-center">Gastos de laboratorio</h3>
-          <p class="mb-3 text-center">Si usted realizó los estudios del suelo en un laboratorio especializado. <br> Digite el precio de los gastos al hacer el estudio, también adjunte la factura electrónica.
-        </div>
-          <form id="soilStudyForm" enctype="multipart/form-data">
+                  <div class="col-xl-6 col-md-5 px-5 position-relative ">
+                    <div class="row mb-3 ">
+                      <div class="input-group input-group-static py-3">
+                        <label for="studyPrice">Digite el Valor de la cotización</label>
+                        <input type="number" class="form-control" placeholder="Digite el precio" id="studyPrice" min="0" step="0.01" required>
+                      </div>
+                    </div>
 
-            <div class="row mt-3 ms-5">
-              
-
-              <div class="col-md-3 me-3">
-                <div class="input-group input-group-static py-3">
-                  <label for="studyPrice">Gastos de estudios</label>
-                  <input type="number" class="form-control" placeholder="Dijite el precio" id="studyPrice" min="0" step="0.01" required>
+                  </div>
+                  
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="col-md-4 me-5">
-                <div class="input-group input-group-static mb-2 mt-3">
-                  <label for="receiptFile">Archivo de comprobante:</label>
+        </div>
+
+    </section>
+    
+
+    <section class="mt-3 mx-md-4">
+      <div class="row me-4 card" style="float: left;">
+        <div class="row">
+          <div class="col-md-12">
+            <style>
+              /* Estilos adicionales para mejorar la apariencia */
+              body {
+                font-family: Arial, sans-serif;
+              }
+              
+              label {
+                display: block;
+                margin-top: 10px;
+              }
+              
+              input[type="text"], input[type="number"] {
+                width: 200px;
+              }
+              
+              table {
+                border-collapse: collapse;
+                width: 100%;
+              }
+              
+              th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+              }
+            </style>
+            <h2>Inventario</h2>
+            <form id="productForm">
+              <div class="col-md-10">
+                <div class="input-group input-group-static">
+                  <label for="transactionType">Tipo de transacción:</label>
+                  <select id="transactionType" onchange="changeForm()" class="form-select form-select-lg mb-2 form-control" aria-label=".form-select-lg example">
+                    <option> selecciona </option>
+                    <option value="alquilar">Alquiler</option>
+                    <option value="comprar">Comprar</option>
+                  </select>
                 </div>
-                  <input type="file" class="btn-outline-success" id="receiptFile" accept=".pdf,.jpg,.jpeg,.png" required>
+              </div>
+              
+              <div id="alquilerForm" style="display: none;">
+                <h4>ALQUILER</h4>
                 
-              </div>
+                <div class="input-group input-group-static mb-2">
+                <label for="productNameAlquiler">Nombre del producto:</label>
+                <input type="text" class="form-control" id="productNameAlquiler" placeholder="Digite nombre" required>
+                </div>
 
-              <div class="col-md-4">
-                <div class="input-group input-group-static mb-2 mt-4">
-                  <button class="btn btn-outline-success" type="submit">Guardar</button>
-                </div>                
-              </div>
+                <div class="input-group input-group-static mb-2">
+                <label for="quantityAlquiler">Cantidad:</label>
+                <input type="number" class="form-control" id="quantityAlquiler" min="1"  placeholder="Digite" required>
+                </div>
 
+                <div class="input-group input-group-static mb-2">
+                <label for="pricePerUnitAlquiler">Precio por unidad:</label>
+                <input type="number" class="form-control" placeholder="Digite" id="pricePerUnitAlquiler" min="0" step="0.01" required>
+                </div>
+                <div class="input-group input-group-static mb-2">
+                <label for="rentalTime">Tiempo de alquiler:</label>
+                <input type="text" class="form-control" placeholder="Digite" id="rentalTime" required>
+                </div>
+                <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
+              </div>
               
-            </div>
-          </form>
-          <div class="preview" id="previewSection" style="display: none;">
-            <h3>Vista previa del archivo:</h3>
-            <div id="filePreview"></div>
+              <div id="comprarForm" style="display: none;">
+                <h4>COMPRAR</h4>
+                <div class="input-group input-group-static mb-2">
+                <label for="productNameComprar">Nombre del producto:</label>
+                <input type="text" class="form-control" placeholder="Digite" id="productNameComprar" required>
+                </div>
+
+                <div class="input-group input-group-static mb-2">
+                <label for="quantityComprar">Cantidad:</label>
+                <input type="number" class="form-control" placeholder="Digite" id="quantityComprar" min="1" required>
+                </div>
+
+                <div class="input-group input-group-static mb-2">
+                <label for="pricePerUnitComprar">Precio por unidad:</label>
+                <input type="number" class="form-control" placeholder="Digite" id="pricePerUnitComprar" min="0" step="0.01" required>
+                </div>
+
+                <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
+              </div>
+            </form>
           </div>
+        
+          
         </div>
-
-        
-        <div class="container">
-          <div class="row">
-            <div class="">
-              <h3 class="mb-3 text-center">Resultados del estudio del suelo</h3>
-            </div>
-          </div>
-          <!-- separador -->
-        
-        <div class="row me-4 card" style="width: 49%; height: auto; float: left; border: 1px solid #4CAF50;">
-          <div class="row ms-1 mt-3">
-            <h5>Registro de estudio</h5>
-            <div class="col-md-6">
-              <div class="input-group input-group-static mb-4 py-3">
-                <label>Textura del suelo</label>
-                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                  aria-label=".form-select-lg example">
-                  <option selected>Seleccionar</option>
-                  <option value="1">tipodesuelo</option>
-                  <option value="2">tipodesuelo</option>
-                  <option value="3">tipodesuelo</option>
-                  <option value="4">tipodesuelo</option>
-                  <option value="5">tipodesuelo</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-group input-group-static mb-4 py-3">
-                <label>PH del suelo</label>
-                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                  aria-label=".form-select-lg example">
-                  <option selected>Seleccionar</option>
-                  <option value="1">6</option>
-                  <option value="2">6,5</option>
-                  <option value="3">7</option>
-                  <option value="4">7,5</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6 ps-md-2">
-              <div class="input-group input-group-static mb-4">
-                <label>Cantidad de hectáreas</label>
-                <input type="number" class="form-control" placeholder="Dijite por catidad">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-group input-group-static mb-4">
-                <label>Nombre de fertilizante</label>
-                <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                  aria-label=".form-select-lg example">
-                  <option selected>Seleccionar</option>
-                  <option value="1">tipodesuelo</option>
-                  <option value="2">tipodesuelo</option>
-                  <option value="3">tipodesuelo</option>
-                  <option value="4">tipodesuelo</option>
-                  <option value="5">tipodesuelo</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-          <!-- separador -->
-
-          <div class="row card" style="width: 49%; height: auto;float: left; border: 1px solid #4CAF50;">
-            <div class="row ms-1 mt-3">
-              <h5>Registro de estudio</h5>
-              <div class="col-md-6">
-                <div class="input-group input-group-static mb-4 py-3">
-                  <label>Textura del suelo</label>
-                  <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                    aria-label=".form-select-lg example">
-                    <option selected>Seleccionar</option>
-                    <option value="1">tipodesuelo</option>
-                    <option value="2">tipodesuelo</option>
-                    <option value="3">tipodesuelo</option>
-                    <option value="4">tipodesuelo</option>
-                    <option value="5">tipodesuelo</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="input-group input-group-static mb-4 py-3">
-                  <label>PH del suelo</label>
-                  <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                    aria-label=".form-select-lg example">
-                    <option selected>Seleccionar</option>
-                    <option value="1">6</option>
-                    <option value="2">6,5</option>
-                    <option value="3">7</option>
-                    <option value="4">7,5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6 ps-md-2">
-                <div class="input-group input-group-static mb-4">
-                  <label>Cantidad de hectáreas</label>
-                  <input type="number" class="form-control" placeholder="Dijite por catidad">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="input-group input-group-static mb-4">
-                  <label>Nombre de fertilizante</label>
-                  <select placeholder="asunto" required="" class="form-select form-select-lg mb-2 form-control"
-                    aria-label=".form-select-lg example">
-                    <option selected>Seleccionar</option>
-                    <option value="1">tipodesuelo</option>
-                    <option value="2">tipodesuelo</option>
-                    <option value="3">tipodesuelo</option>
-                    <option value="4">tipodesuelo</option>
-                    <option value="5">tipodesuelo</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-            <!-- separador -->  
-
 
       </div>
       
+      <!-- separador -->
+      <div class="row card" style="width: 70%; height: auto;float: left; border: 1px solid #4CAF50;">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Listado de productos</h3>
+            <table id="productTable">
+              <thead>
+                <tr>
+                  <th>Nombre del producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio por unidad</th>
+                  <th>Tipo de transacción</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4" align="right"><strong>Total:</strong></td>
+                  <td id="totalAmount">0</td>
+                </tr>
+              </tfoot>
+            </table>
+            <h1></h1>
+            <br>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- separador -->
     </section>
 
-    
     <!-- paginacion -->
     <div class="row card text-center page-header"  style="border: 1px solid #4CAF50; width: 13rem; min-width: 13rem; height: 50px; min-height: 50px; position: sticky; left: 41.3%; bottom: 5px; z-index: 100;">
       <div class="col-12 mx-auto " style="padding-top: 7px;">
@@ -430,65 +423,73 @@
     </div>
     <!-- paginacion -->
 
-    <!-- END CARD -->
   </div>
 
 
-
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
-  <footer class="footer py-5">
-    <div class="container z-index-1 position-relative">
-      <div class="row">
-        <div class="col-lg-4 me-auto mb-lg-0 mb-4 text-lg-start text-center">
-          <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">
-            <img class="" src="../assets/img/imagenes/logo_maiz.png" width="35px" alt="">
-            PLANEA TU CULTIVO DE MAIZ
-          </h6>
-          <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
-            <li class="nav-item">
-              <a class="nav-link text-dark opacity-8" href="../index.html">
-                Inicio
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark opacity-8" href="../instructivos/videos/">
-                Videos</a>
-              <a class="nav-link text-dark opacity-8" href="../instructivos/documentos/">
-                Documentos</a>
-              <a class="nav-link text-dark opacity-8" href="../instructivos/flujograma/">
-                Flujograma</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark opacity-8" href="paso1.html">
-                Simular
-              </a>
-            </li>
-          </ul>
-          <p class="text-sm text-dark opacity-8 mb-0">
-            Copyright ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> Material Design by Creative Tim.
-          </p>
+  <footer class="footer bg-white pt-5 opacity-9">
+    <div class="container">
+        <div class=" row">
+            <div class="col-md-3 mb-4 ms-auto">
+                <div>
+                    <a href="index.html">
+                    <img src="../assets/img/logo_maiz.png" class="mb-4" alt="main_logo" style="width:40px; margin-left:32px">
+                    </a>
+                    <h5 class="font-weight-bolder mb-4"><span class="text-dark font-weight-bold"><span class="text-success">Plantea</span> tu cultivo <br> de maiz</span></h5>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-6 col-6 mb-4">
+                <div>
+                    <h6 class="text-sm">Contacto</h6>
+                    <ul class="flex-column ms-n3 nav">
+                    <li class="nav-item">
+                        <a class="nav-link">
+                        Centro Biotecnológico del Caribe (CBC).
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                        Km 7 via la paz 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                        Valledupar - Cesar
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-6 mb-4">
+                <div>
+                    <h6 class="text-sm">Paginas</h6>
+                    <ul class="flex-column ms-n3 nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                        Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/muestras.html">
+                        Simular
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                        Instructivos
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-6 mb-4 d-flex flex-column justify-content-center align-items-center">
+                <h6 class="text-sm text-success">Eres usuario o administrador</h6>
+                <a href="{{ route('login') }}" class="btn btn-sm bg-gradient-success mb-0 me-1 mt-2 mt-md-0">Iniciar Sesion</a>
+            </div>
+
         </div>
-        <div class="col-lg-6 ms-auto text-lg-end text-center">
-          <p class="mb-5 text-lg text-dark font-weight-bold">
-            <!-- The reward for getting on the stage is fame. The price of fame is you can’t get off the stage. -->
-          </p>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
-            <span class="fab fa-dribbble"></span>
-          </a>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
-            <span class="fab fa-twitter"></span>
-          </a>
-          <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
-            <span class="fab fa-pinterest"></span>
-          </a>
-          <a href="javascript:;" target="_blank" class="text-dark opacity-5">
-            <span class="fab fa-github"></span>
-          </a>
-        </div>
-      </div>
     </div>
   </footer>
   <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->

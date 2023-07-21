@@ -1,0 +1,48 @@
+<style>
+    .oculto {
+        display: none;
+    }
+
+    .flotante {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 96px;
+        height: 21px;
+        background-color: #f3f3f3;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 61px;
+    }
+</style>
+
+<h1>Ocultar y mostrar un div con checkbox</h1>
+
+<input type="checkbox" id="checkbox" onchange="mostrarOcultarDiv1()"> Mostrar/ocultar div
+
+<div id="divOculto" class="oculto">
+    <p>Este es el div oculto.</p>
+</div>
+
+<div id="divVisible">
+    <p>Este es el div visible.</p>
+</div>
+<div id="resultado" class="flotante"></div>
+
+<script>
+    function mostrarOcultarDiv1() {
+        var checkbox = document.getElementById("checkbox");
+        var divOculto = document.getElementById("divOculto");
+        var divVisible = document.getElementById("divVisible");
+
+        if (checkbox.checked) {
+            divOculto.style.display = "block";
+            divVisible.style.display = "none";
+        } else {
+            divOculto.style.display = "none";
+            divVisible.style.display = "block";
+        }
+
+    }
+
+</script>

@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/imagenes/logo_maiz.png">
-  <link rel="icon" type="image/png" href="assets/img/imagenes/logo_maiz.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/logo_maiz.png">
+  <link rel="icon" type="image/png" href="assets/img/logo_maiz.png">
   <title>
     Inicio
   </title>
@@ -37,7 +37,7 @@
           <div class="container-fluid px-0">
             <a class="navbar-brand font-weight-bolder ms-sm-2" href="index.html"
               rel="tooltip" title="PLANEA TU CULTIVO DE MAIZ" data-placement="bottom" >
-              <img class="" src="assets/img/imagenes/logo_maiz.png" width="30px" alt="">
+              <img class="" src="assets/img/logo_maiz.png" width="30px" alt="">
               PLANEA TU CULTIVO DE MAIZ
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -204,7 +204,7 @@
           <div class="col-lg-8 mx-auto text-white text-center">
             <h1 class="text-white">Planea tu Cultivos de maiz</h1>
             <p class="lead animate-text" id="animate-text1">"La primera y más respetable de las artes es la agricultura".</p>
-            <a href="pages/muestras.html" class="btn  text-dark bg-white">Simular</a>
+            <a href="pages/muestras.html" class="btn  text-success bg-white">Simular</a>
           </div>
         </div>
         <div class="mx-auto">
@@ -214,78 +214,76 @@
   </header>
 
   <!-- Estilos de animacion de texto -->
-<style>
+  <style>
 
-  .animate-text {
-  letter-spacing: 0.075rem;
-  }
+    .animate-text {
+    letter-spacing: 0.075rem;
+    }
 
-  /*Para simular el cursor del teclado usamos la siguiente pseudoclase con una animación que pueden ver en la parte final del código CSS*/
-  .animate-text::after {
-  content: "|";
-  font-size: 1.6rem;
-  font-family: "Inconsolata", monospace;
-  animation-name: parpadeo;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  }
-  .zoom {
-  animation: zoom 8s 0s;
-  }
+    /*Para simular el cursor del teclado usamos la siguiente pseudoclase con una animación que pueden ver en la parte final del código CSS*/
+    .animate-text::after {
+    content: "|";
+    font-size: 1.6rem;
+    font-family: "Inconsolata", monospace;
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    }
+    .zoom {
+    animation: zoom 8s 0s;
+    }
 
-  /*Esta animación imita el parpadeo del cursor del teclado*/
-  @keyframes parpadeo {
-  0% {
-      opacity: 1;
-  }
-  20% {
-      opacity: 1;
-  }
-  25% {
-      opacity: 0;
-  }
-  90% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-  }
-  }
+    /*Esta animación imita el parpadeo del cursor del teclado*/
+    @keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    }
 
-</style>
-<!-- Escript de animacion de texto -->
-<script>
-  //Primero capturamos el elemento del DOM con el id que definimos en el html
-  const text1 = document.getElementById("animate-text1");
-  let str = text1.innerHTML;
-  text1.innerHTML = "";
+  </style>
+  <!-- Escript de animacion de texto -->
+  <script>
+    //Primero capturamos el elemento del DOM con el id que definimos en el html
+    const text1 = document.getElementById("animate-text1");
+    let str = text1.innerHTML;
+    text1.innerHTML = "";
 
-  //Declaramos una varible en la que asignaremos un valor para que sea el tiempo en ms que durará la función setTimeout
-  const speed = 25;
-  let i = 0;
+    //Declaramos una varible en la que asignaremos un valor para que sea el tiempo en ms que durará la función setTimeout
+    const speed = 25;
+    let i = 0;
 
-  //Esta función recorre todos los caracteres nuestro texto
-  const typeWriter = () => {
-  if (i < str.length) {
-      text1.innerHTML += str.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-  }
-  };
+    //Esta función recorre todos los caracteres nuestro texto
+    const typeWriter = () => {
+    if (i < str.length) {
+        text1.innerHTML += str.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+    };
 
-  //Acá ejecutamos la función
-  setTimeout(typeWriter, speed);
+    //Acá ejecutamos la función
+    setTimeout(typeWriter, speed);
 
-</script>
-
+  </script>
 
   <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
 
-
   <div class="card card-body  mx-3 mx-md-4 mt-n3 mb-4">
 
-    <!-- -------- END HEADER 7 w/ text and video ------- -->
+    <!-- -------- Gastos de laboratorio ------- -->
     <div class="container">
       <div class="row bg-white shadow mt-n6 border-radius-lg mx-md-8 mx-sm-0 mx-1 position-relative">
 
@@ -307,7 +305,7 @@
         </section>
       </div>
     </div>
-      <!-- START Blogs w/ 4 cards w/ image & text & link -->
+      <!-- registro de estudios -->
     <section class="py-3">
       <div class="container">
         <div class="row">
@@ -363,7 +361,7 @@
             <div class="card card-plain">
               <div class="card-header p-0 position-relative">
                 <a class="d-block blur-shadow-image">
-                  <img src="assets/img/imagenes/imagen2.jpg" alt="img-blur-shadow"
+                  <img src="assets/img/imagen2.jpg" alt="img-blur-shadow"
                     class="img-fluid shadow border-radius-lg" loading="lazy" style="width: 350px; height: 200px; max-height: 200px;">
                 </a>
               </div>
@@ -401,9 +399,10 @@
         </div>
       </div>
     </section>
-    <!-- END Blogs w/ 4 cards w/ image & text & link -->
+    <!-- fin registros de estudios -->
+
   </div>
-  
+
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer mt-5">
     <div class="container">
@@ -411,7 +410,7 @@
             <div class="col-md-3 mb-4 ms-auto">
                 <div>
                     <a href="index.html">
-                    <img src="assets/img/imagenes/logo_maiz.png" class="mb-4" alt="main_logo" style="width:40px; margin-left:32px">
+                    <img src="assets/img/logo_maiz.png" class="mb-4" alt="main_logo" style="width:40px; margin-left:32px">
                     </a>
                     <h5 class="font-weight-bolder mb-4"><span class="text-dark font-weight-bold"><span class="text-success">Plantea</span> tu cultivo <br> de maiz</span></h5>
                 </div>
