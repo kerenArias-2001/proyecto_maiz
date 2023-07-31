@@ -37,6 +37,9 @@
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/menu_global.css">
 </head>
 
 <body class="blog-author " style="background-image: url('../assets/img/fotosmaiz\ \(1\).jpg'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed">
@@ -218,15 +221,37 @@
     </div>
   </div>
   <!-- fin Navbar -->
-
+  <section class="section" style="z-index: 9999;">
+    <div class="global-content">
+      <div class="toggle-btn">
+        <i class='bx bx-plus'></i>
+      </div>
+      <span style="--i:1;">
+        <a href="#"><i class='bx bxs-home'></i></a>
+      </span>
+      <span style="--i:2;">
+        <a href="#"><i class='bx bxs-camera'></i></a>
+      </span>
+      <span style="--i:3;">
+        <a href="#"><i class='bx bxs-alarm' ></i></a>
+      </span>
+      <span style="--i:4;">
+        <a href="#"><i class='bx bxs-map' ></i></a>
+      </span>
+      <span style="--i:5;">
+        <a href="#"><i class='bx bxs-cog' ></i></a>
+      </span>
+    </div>
+  </section>
 
   <div class="card1 card-body  mx-3 mx-md-8 mt-8 mb-4">
     <!-- CARD -->
 
+    
+
     <section>
 
-      <div class="row mb-2 card opacity-9">
-
+      <div class="row mb-4 card opacity-9">
         <div class="container-fluid">
           <div class="row">
             <div class="col-10 mx-auto border-radius-lg">
@@ -236,15 +261,17 @@
                 <div class="col-xl-6 col-md-5 px-5 z-index-2 position-relative">
                   <div class="row ">
                     <div class="input-group input-group-static py-3">
-                      <label for="hectareas">Cuantas hectáreas desea sembrar?</label>
-                      <input type="number" id="hectareas" class="form-control" placeholder="Digite la cantidad por metros²" min="0" step="any" required>
-                      <button onclick="calcularHerramientas()">Calcular</button> 
+                      <form onsubmit="return false;">
+                        <label for="hectareas">Cuantas hectáreas desea sembrar?</label>
+                        <input type="number" id="hectareas" value="2" class="form-control" placeholder="Digite la cantidad por metros²" min="0" step="0.5" required>
+                        <button onclick="calcularHerramientas()">Calcular</button> 
+                      </form>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-xl-6 col-md-5 px-5 position-relative ">
-                  <div class="row mb-3 ">
+                  <div class="row mb-3">
                     <div class="input-group input-group-static py-3">
                       <label for="studyPrice">Digite el Valor de la cotización</label>
                       <input type="number" class="form-control" placeholder="Digite el precio" id="studyPrice" min="0"
@@ -272,9 +299,11 @@
             <h4 class="text-center mt-3 animate-text" id="animate-text1">SUGERENCIA DE HERRAMIENTAS PARA EL ANALISIS.</h4>
             <div id="resultado">
               <div class="container">
-                  <div class="row mt-2" id="herramientas-lista"></div>
+                  <div class="col-14 row" id="herramientas-lista">
+                    <!-- sugerencias -->
+                  </div>
               </div>
-          </div>
+            </div>
           </div>
         </div>
 
@@ -511,6 +540,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
   <script src="../assets/js/sugerencias/sug_analisis.js"></script>
+  <script src="../assets/js/menu_global.js"></script>
 </body>
 
 </html>

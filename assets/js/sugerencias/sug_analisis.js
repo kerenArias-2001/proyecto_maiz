@@ -14,18 +14,20 @@
         const palasPorHectarea = 10;
         const baldesPorHectarea = 2;
         const palinPorHectarea = 2;
+        const bolsasPorHectarea = 5;
 
         const palasNecesarias = palasPorHectarea * hectareas;
         const baldesNecesarios = baldesPorHectarea * hectareas;
         const palinNecesarios = palinPorHectarea * hectareas;
+        const bolsasNecesarias = bolsasPorHectarea * hectareas;
 
         return [
-            { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/logo_maiz.png' },
-            { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/logo_maiz.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/logo_maiz.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/logo_maiz.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/logo_maiz.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/logo_maiz.png' }
+            { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/herramientas/001-pala.png' },
+            { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/herramientas/balde.png' },
+            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
+            { nombre: 'Bolsas', cantidad: bolsasNecesarias, imagen: '../assets/img/herramientas/bolsas.png' },
+            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
+            { nombre: 'moto bomba', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
             
         ];
     }
@@ -36,15 +38,16 @@
 
         herramientas.forEach(herramienta => {
             const herramientaDiv = document.createElement("div");
-            herramientaDiv.classList.add("col-lg-4", "col-md-8");
-            herramientaDiv.style.width = "17%";
-            herramientaDiv.style.maxWidth = "25%";
+            herramientaDiv.classList.add("col-lg-8", "mt-3", "ms-2");
+            herramientaDiv.style.width = "16%";
+            herramientaDiv.style.minWidth = "16%";
+            herramientaDiv.style.maxWidth = "16%";
 
             const card = document.createElement("div");
-            card.classList.add("card", "bg-gradient-dark");
+            card.classList.add("card", "p-1", "blur");
 
             const cardBody = document.createElement("div");
-            cardBody.classList.add("card-body");
+            card.classList.add("card");
 
             const author = document.createElement("div");
             author.classList.add("author", "align-items-center");
@@ -52,14 +55,14 @@
             const imagen = document.createElement("img");
             imagen.src = herramienta.imagen;
             imagen.alt = herramienta.nombre;
-            imagen.classList.add("avatar", "shadow", "rounded-circle", "herramienta-imagen");
+            imagen.classList.add("avatar1", "herramienta-imagen");
 
             const nameDiv = document.createElement("div");
             nameDiv.classList.add("name", "ps-2");
 
             const nombreCantidad = document.createElement("span");
             nombreCantidad.textContent = herramienta.nombre + ': ' + herramienta.cantidad;
-            nombreCantidad.classList.add("text-white", "herramienta-item");
+            nombreCantidad.classList.add("text-dark", "herramienta-item");
 
             nameDiv.appendChild(nombreCantidad);
             author.appendChild(imagen);
@@ -70,3 +73,5 @@
             listaHerramientasDiv.appendChild(herramientaDiv);
         });
     }
+    // Calcular herramientas al cargar la página con 2 hectáreas por defecto
+    calcularHerramientas();

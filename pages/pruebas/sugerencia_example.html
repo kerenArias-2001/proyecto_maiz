@@ -38,16 +38,46 @@
         }
     </style>
 <body>
-    <h1>Calculadora de Herramientas por Hectárea</h1>
-    <form onsubmit="return false;">
-        <label for="hectareas">Ingrese la cantidad de hectáreas:</label>
-        <input type="number" step="any" id="hectareas" required>
-        <button onclick="calcularHerramientas()">Calcular</button>
-    </form>
-    <div id="resultado">
-        <h2>Resultado:</h2>
-        <div class="container">
-            <div class="row mt-2" id="herramientas-lista"></div>
+
+    <div class="container bg-gradient-success">
+        <div class="row mt-2">
+            <div style="width: 17% ;max-width: 25%; ">
+                <div class="card mt-2 bg-gradient-dark">
+                    <div class="card p-1">
+                        <div class="author  align-items-center">
+                            <img src="../assets/img/logo_maiz.png" alt="..." class="avatar  shadow">
+                            <span class="text-dark">nombre_producto: 33</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-8" style="width: 17% ;max-width: 25%; ">
+                <div class="card bg-gradient-dark">
+                    <div class="card-body">
+                        <div class="author  align-items-center">
+                            <img src="herramienta-imagen" alt="..." class="avatar shadow ">
+                            <div class="name ps-2"> 
+                            <span class="text-dark">nombre_producto: 333 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-8" style="width: 17% ;max-width: 25%; ">
+                <div class="card bg-gradient-dark">
+                    <div class="card-body">
+                        <div class="author  align-items-center">
+                            <img src="herramienta-imagen" alt="..." class="avatar shadow rounded-circle">
+                            <div class="name ps-2">
+                            <span class="text-dark">nombre_producto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -61,5 +91,5 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
-  <script src="../assets/js/sugerencias/sug_analisis.js"></script>
+
 </html>

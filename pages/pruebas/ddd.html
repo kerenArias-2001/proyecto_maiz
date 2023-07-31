@@ -39,15 +39,37 @@
         }
     </style>
 <body>
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Herramientas por Hectárea</title>
+    <style>
+        /* Estilos para las imágenes de las herramientas */
+        .herramienta-imagen {
+            width: 50px; /* Puedes ajustar el tamaño de la imagen */
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        /* Estilos para los elementos de la lista */
+        .herramienta-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
     <h1>Calculadora de Herramientas por Hectárea</h1>
     <form onsubmit="return false;">
         <label for="hectareas">Ingrese la cantidad de hectáreas:</label>
-        <input type="number" step="any" id="hectareas" required>
+        <input type="number" step="any" id="hectareas" value="2" required>
         <button onclick="calcularHerramientas()">Calcular</button>
     </form>
-    <div id="resultado" class="card">
+    <div id="resultado">
         <h2>Resultado:</h2>
-        <div id="herramientas-lista" class="card bg-dark"></div>
+        <div class="container">
+            <div class="row mt-2" id="herramientas-lista"></div>
+        </div>
     </div>
 
     <script>
@@ -73,9 +95,9 @@
             const palinNecesarios = palinPorHectarea * hectareas;
 
             return [
-                { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/logo_maiz.png' },
-                { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/logo_maiz.png' },
-                { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/logo_maiz.png ' }
+                { nombre: 'Palas', cantidad: palasNecesarias, imagen: 'ruta_de_la_imagen_palas.png' },
+                { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: 'ruta_de_la_imagen_baldes.png' },
+                { nombre: 'Palín', cantidad: palinNecesarios, imagen: 'ruta_de_la_imagen_palin.png' }
             ];
         }
 
@@ -85,63 +107,47 @@
 
             herramientas.forEach(herramienta => {
                 const herramientaDiv = document.createElement("div");
+                herramientaDiv.classList.add("col-lg-4", "col-md-8");
+                herramientaDiv.style.width = "17%";
+                herramientaDiv.style.maxWidth = "17%";
+                herramientaDiv.style.minWidth = "17%";
+
+                const card = document.createElement("div");
+                card.classList.add("card", "bg-gradient-dark");
+
+                const cardBody = document.createElement("div");
+                cardBody.classList.add("card-body");
+
+                const author = document.createElement("div");
+                author.classList.add("author", "align-items-center");
+
                 const imagen = document.createElement("img");
                 imagen.src = herramienta.imagen;
                 imagen.alt = herramienta.nombre;
-                imagen.classList.add("herramienta-imagen"); // Agregamos la clase para la imagen
-                const nombreCantidad = document.createElement("p");
-                nombreCantidad.textContent = `${herramienta.nombre}: ${herramienta.cantidad}`;
-                nombreCantidad.classList.add("herramienta-item"); // Agregamos la clase para el elemento de la lista
+                imagen.classList.add("avatar", "shadow", "rounded-circle", "herramienta-imagen");
 
-                herramientaDiv.appendChild(imagen);
-                herramientaDiv.appendChild(nombreCantidad);
+                const nameDiv = document.createElement("div");
+                nameDiv.classList.add("name", "ps-2");
+
+                const nombreCantidad = document.createElement("span");
+                nombreCantidad.textContent = herramienta.nombre + ': ' + herramienta.cantidad;
+                nombreCantidad.classList.add("text-white", "herramienta-item");
+
+                nameDiv.appendChild(nombreCantidad);
+                author.appendChild(imagen);
+                author.appendChild(nameDiv);
+                cardBody.appendChild(author);
+                card.appendChild(cardBody);
+                herramientaDiv.appendChild(card);
                 listaHerramientasDiv.appendChild(herramientaDiv);
             });
         }
+
+        // Calcular herramientas al cargar la página con 2 hectáreas por defecto
+        calcularHerramientas();
     </script>
-    <div class="container">
-        <div class="row mt-2">
-            <div class="col-lg-4 col-md-8" style="width: 17% ;max-width: 25%; ">
-                <div class="card bg-gradient-dark">
-                    <div class="card-body">
-                        <div class="author  align-items-center">
-                            <img src="herramienta-imagen" alt="..." class="avatar shadow rounded-circle">
-                            <div class="name ps-2">
-                            <span class="text-white">nombre_producto</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-8" style="width: 17% ;max-width: 25%; ">
-                <div class="card bg-gradient-dark">
-                    <div class="card-body">
-                        <div class="author  align-items-center">
-                            <img src="herramienta-imagen" alt="..." class="avatar shadow rounded-circle">
-                            <div class="name ps-2">
-                            <span class="text-white">nombre_producto </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-8" style="width: 17% ;max-width: 25%; ">
-                <div class="card bg-gradient-dark">
-                    <div class="card-body">
-                        <div class="author  align-items-center">
-                            <img src="herramienta-imagen" alt="..." class="avatar shadow rounded-circle">
-                            <div class="name ps-2">
-                            <span class="text-white">nombre_producto</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+</body>
+</html>
 
 
 </body>
