@@ -22,7 +22,7 @@ function addProduct() {
     productName = document.getElementById("productNameAlquiler").value;
     quantity = document.getElementById("quantityAlquiler").value;
     pricePerUnit = document.getElementById("pricePerUnitAlquiler").value;
-    additionalInfo = document.getElementById("rentalTime").value;
+    additionalInfo = document.getElementById("rentalTime").value + " horas";
     } else if (transactionType === "comprar") {
     productName = document.getElementById("productNameComprar").value;
     quantity = document.getElementById("quantityComprar").value;
@@ -30,7 +30,7 @@ function addProduct() {
     additionalInfo = "Comprar";
     }
     
-    var subtotal = (quantity * pricePerUnit).toFixed(2);
+    var subtotal = (quantity * pricePerUnit * (transactionType === "alquilar" ? document.getElementById("rentalTime").value : 1)).toFixed(2);
     
     var table = document.getElementById("productTable").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.rows.length);
