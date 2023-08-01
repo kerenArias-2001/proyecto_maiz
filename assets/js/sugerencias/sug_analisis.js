@@ -14,20 +14,22 @@
         const palasPorHectarea = 10;
         const baldesPorHectarea = 2;
         const palinPorHectarea = 2;
-        const bolsasPorHectarea = 5;
+        const bolsasPorHectarea = 6;
+        const semillasPorHectarea = 20;
 
         const palasNecesarias = palasPorHectarea * hectareas;
         const baldesNecesarios = baldesPorHectarea * hectareas;
         const palinNecesarios = palinPorHectarea * hectareas;
         const bolsasNecesarias = bolsasPorHectarea * hectareas;
+        const semillasNecesarias = semillasPorHectarea * hectareas;
 
         return [
-            { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/herramientas/001-pala.png' },
-            { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/herramientas/balde.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
-            { nombre: 'Bolsas', cantidad: bolsasNecesarias, imagen: '../assets/img/herramientas/bolsas.png' },
-            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
-            { nombre: 'moto bomba', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png' },
+            { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
+            { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/herramientas/balde.png', medida: ' und' },
+            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
+            { nombre: 'Bolsas', cantidad: bolsasNecesarias, imagen: '../assets/img/herramientas/bolsas.png', medida: ' und' },
+            { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
+            { nombre: 'semillas', cantidad: semillasNecesarias, imagen: '../assets/img/herramientas/maiz.png', medida: ' kg' },
             
         ];
     }
@@ -61,7 +63,7 @@
             nameDiv.classList.add("name", "ps-2");
 
             const nombreCantidad = document.createElement("span");
-            nombreCantidad.textContent = herramienta.nombre + ': ' + herramienta.cantidad;
+            nombreCantidad.textContent = herramienta.nombre + ': ' + herramienta.cantidad + herramienta.medida;
             nombreCantidad.classList.add("text-dark", "herramienta-item");
 
             nameDiv.appendChild(nombreCantidad);
