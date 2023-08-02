@@ -41,25 +41,25 @@
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../assets/css/menu_global.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-      $(document).ready(function() {
-          // Función para actualizar la tabla con los datos del servidor
-          function actualizarTabla() {
-              $.ajax({
-                  url: 'obtener_datos.php', // Archivo PHP que obtiene los datos del servidor
-                  success: function(data) {
-                      $('#tabla').html(data); // Actualizar el contenido de la tabla con los datos recibidos
-                  }
-              });
-          }
+    <script>
+        $(document).ready(function() {
+            // Función para actualizar la tabla con los datos del servidor
+            function actualizarTabla() {
+                $.ajax({
+                    url: 'obtener_datos.php', // Archivo PHP que obtiene los datos del servidor
+                    success: function(data) {
+                        $('#tabla').html(data); // Actualizar el contenido de la tabla con los datos recibidos
+                    }
+                });
+            }
 
-          // Llamar a la función inicialmente para cargar la tabla con los datos actuales
-          actualizarTabla();
+            // Llamar a la función inicialmente para cargar la tabla con los datos actuales
+            actualizarTabla();
 
-          // Escuchar eventos de cambio en el formulario
-          setInterval(actualizarTabla, 1000);
-      });
-  </script>
+            // Escuchar eventos de cambio en el formulario
+            setInterval(actualizarTabla, 1000);
+        });
+    </script>
      
 </head>
 
@@ -270,71 +270,6 @@
           <div class="col-10 mx-auto border-radius-lg">
             <div class="row">
               <h4 class="text-center mt-3 animate-text" id="animate-text1">ANÁLISIS DEL TERRENO.</h4>
-              <!-- Estilos de animacion de texto -->
-              <style>
-
-                .animate-text {
-                letter-spacing: 0.075rem;
-                }
-
-                /*Para Planear el cursor del teclado usamos la siguiente pseudoclase con una animación que pueden ver en la parte final del código CSS*/
-                .animate-text::after {
-                content: "|";
-                font-size: 1.6rem;
-                font-family: "Inconsolata", monospace;
-                animation-name: parpadeo;
-                animation-duration: 1s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-                }
-                .zoom {
-                animation: zoom 8s 0s;
-                }
-
-                /*Esta animación imita el parpadeo del cursor del teclado*/
-                @keyframes parpadeo {
-                0% {
-                    opacity: 1;
-                }
-                20% {
-                    opacity: 1;
-                }
-                25% {
-                    opacity: 0;
-                }
-                90% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-                }
-
-              </style>
-              <!-- Escript de animacion de texto -->
-              <script>
-                //Primero capturamos el elemento del DOM con el id que definimos en el html
-                const text1 = document.getElementById("animate-text1");
-                let str = text1.innerHTML;
-                text1.innerHTML = "";
-
-                //Declaramos una varible en la que asignaremos un valor para que sea el tiempo en ms que durará la función setTimeout
-                const speed = 25;
-                let i = 0;
-
-                //Esta función recorre todos los caracteres nuestro texto
-                const typeWriter = () => {
-                if (i < str.length) {
-                    text1.innerHTML += str.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
-                }
-                };
-
-                //Acá ejecutamos la función
-                setTimeout(typeWriter, speed);
-
-              </script>
 
               <div class="col-xl-6 col-md-5 px-5 z-index-2 position-relative">
                 <div class="row ">
@@ -347,6 +282,7 @@
                   </div>
                 </div>
               </div>
+
 
               <div class="col-xl-6 col-md-5 px-5 position-relative ">
                 <div class="row mb-3">
@@ -368,7 +304,7 @@
     <section class="row mb-2 card opacity-9">
       <div class="container-fluid">
         <div class="row mb-3">
-          <h4 class="text-center mt-3 ">SUGERENCIA DE HERRAMIENTAS PARA EL ANALISIS.</h4>
+          <h4 class="text-center mt-3 animate-text" id="animate-text1">SUGERENCIA DE HERRAMIENTAS PARA EL ANALISIS.</h4>
           <div id="resultado">
             <div class="container">
               <div class="col-14 row" id="herramientas-lista">
@@ -469,28 +405,7 @@
         <div class="row">
           <div class="ms-3 mt-2 col-md-12">
             <h3>Listado de productos</h3>
-            <table id="productTable">
-              <thead>
-                <tr>
-                  <th>Nombre del producto</th>
-                  <th>Cantidad</th>
-                  <th>Precio por unidad</th>
-                  <th>Tipo de transacción</th>
-                  <th>Subtotal</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="4">
-                    <strong>
-                      <h4 class="mx-auto">Total:</h4>
-                    </strong></td>
-                  <td id="totalAmount">0</td>
-                </tr>
-              </tfoot>
-            </table>
+            <div id="tabla"></div>
             <h1></h1>
             <br>
           </div>
