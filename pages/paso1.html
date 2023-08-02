@@ -40,6 +40,27 @@
   <!-- Boxicons CSS -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="../assets/css/menu_global.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          // Función para actualizar la tabla con los datos del servidor
+          function actualizarTabla() {
+              $.ajax({
+                  url: 'obtener_datos.php', // Archivo PHP que obtiene los datos del servidor
+                  success: function(data) {
+                      $('#tabla').html(data); // Actualizar el contenido de la tabla con los datos recibidos
+                  }
+              });
+          }
+
+          // Llamar a la función inicialmente para cargar la tabla con los datos actuales
+          actualizarTabla();
+
+          // Escuchar eventos de cambio en el formulario
+          setInterval(actualizarTabla, 1000);
+      });
+  </script>
+     
 </head>
 
 <body class="blog-author" style="background-image: url('../assets/img/fotosmaiz\ \(1\).jpg'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed">
@@ -351,7 +372,7 @@
                   <label for="rentalTime">Tiempo de alquiler:</label>
                   <input type="text" class="form-control" placeholder="Digite" id="rentalTime" required>
                 </div>
-                <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar
+                <button type="button" class="btn bg-gradient-success pt-2" onclick="enviarDatos()">Agregar
                   producto</button>
               </div>
 
@@ -373,7 +394,7 @@
                     step="0.01" required>
                 </div>
 
-                <button type="button" class="btn bg-gradient-success pt-2" onclick="addProduct()">Agregar producto</button>
+                <button type="button" class="btn bg-gradient-success pt-2" onclick="enviarDatos1()">Agregar producto</button>
               </div>
             </form>
           </div>
@@ -384,28 +405,7 @@
         <div class="row">
           <div class="ms-3 mt-2 col-md-12">
             <h3>Listado de productos</h3>
-            <table id="productTable">
-              <thead>
-                <tr>
-                  <th>Nombre del producto</th>
-                  <th>Cantidad</th>
-                  <th>Precio por unidad</th>
-                  <th>Tipo de transacción</th>
-                  <th>Subtotal</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="4">
-                    <strong>
-                      <h4 class="mx-auto">Total:</h4>
-                    </strong></td>
-                  <td id="totalAmount">0</td>
-                </tr>
-              </tfoot>
-            </table>
+            <div id="tabla"></div>
             <h1></h1>
             <br>
           </div>
@@ -530,6 +530,9 @@
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
   <script src="../assets/js/sugerencias/sug_analisis.js"></script>
   <script src="../assets/js/menu_global.js"></script>
+ 
+  <script src="../pages/enviardatos.js"></script>
+
 </body>
 
 </html>
