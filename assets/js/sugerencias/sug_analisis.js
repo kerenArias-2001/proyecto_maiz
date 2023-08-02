@@ -16,20 +16,22 @@
         const palinPorHectarea = 2;
         const bolsasPorHectarea = 6;
         const semillasPorHectarea = 20;
+        const operariosPorHectarea =2;
 
         const palasNecesarias = palasPorHectarea * hectareas;
         const baldesNecesarios = baldesPorHectarea * hectareas;
         const palinNecesarios = palinPorHectarea * hectareas;
         const bolsasNecesarias = bolsasPorHectarea * hectareas;
         const semillasNecesarias = semillasPorHectarea * hectareas;
+        const operariosNecesarios = operariosPorHectarea * hectareas;
 
         return [
-            { nombre: 'Palas', cantidad: palasNecesarias, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
+            { nombre: 'Operarios', cantidad: operariosNecesarios, imagen: '../assets/img/herramientas/001-pala.png', medida: ' ' },
             { nombre: 'Baldes', cantidad: baldesNecesarios, imagen: '../assets/img/herramientas/balde.png', medida: ' und' },
             { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
             { nombre: 'Bolsas', cantidad: bolsasNecesarias, imagen: '../assets/img/herramientas/bolsas.png', medida: ' und' },
             { nombre: 'Palín', cantidad: palinNecesarios, imagen: '../assets/img/herramientas/001-pala.png', medida: ' und' },
-            { nombre: 'semillas', cantidad: semillasNecesarias, imagen: '../assets/img/herramientas/maiz.png', medida: ' kg' },
+            { nombre: 'Semillas', cantidad: semillasNecesarias, imagen: '../assets/img/herramientas/maiz.png', medida: ' kg' },
             
         ];
     }

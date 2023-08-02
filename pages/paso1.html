@@ -249,15 +249,79 @@
           <div class="col-10 mx-auto border-radius-lg">
             <div class="row">
               <h4 class="text-center mt-3 animate-text" id="animate-text1">ANÁLISIS DEL TERRENO.</h4>
+              <!-- Estilos de animacion de texto -->
+              <style>
+
+                .animate-text {
+                letter-spacing: 0.075rem;
+                }
+
+                /*Para Planear el cursor del teclado usamos la siguiente pseudoclase con una animación que pueden ver en la parte final del código CSS*/
+                .animate-text::after {
+                content: "|";
+                font-size: 1.6rem;
+                font-family: "Inconsolata", monospace;
+                animation-name: parpadeo;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                }
+                .zoom {
+                animation: zoom 8s 0s;
+                }
+
+                /*Esta animación imita el parpadeo del cursor del teclado*/
+                @keyframes parpadeo {
+                0% {
+                    opacity: 1;
+                }
+                20% {
+                    opacity: 1;
+                }
+                25% {
+                    opacity: 0;
+                }
+                90% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+                }
+
+              </style>
+              <!-- Escript de animacion de texto -->
+              <script>
+                //Primero capturamos el elemento del DOM con el id que definimos en el html
+                const text1 = document.getElementById("animate-text1");
+                let str = text1.innerHTML;
+                text1.innerHTML = "";
+
+                //Declaramos una varible en la que asignaremos un valor para que sea el tiempo en ms que durará la función setTimeout
+                const speed = 25;
+                let i = 0;
+
+                //Esta función recorre todos los caracteres nuestro texto
+                const typeWriter = () => {
+                if (i < str.length) {
+                    text1.innerHTML += str.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+                };
+
+                //Acá ejecutamos la función
+                setTimeout(typeWriter, speed);
+
+              </script>
 
               <div class="col-xl-6 col-md-5 px-5 z-index-2 position-relative">
                 <div class="row ">
                   <div class="input-group input-group-static py-3">
-                    <form onsubmit="return false;">
+                    <form onsubmit="return false;" class="col-md-7">
                       <label for="hectareas">Cuantas hectáreas desea sembrar?</label>
-                      <input type="number" id="hectareas" value="3" class="form-control"
-                        placeholder="Digite la cantidad por metros²" min="0" step="0.5" required>
-                      <button onclick="calcularHerramientas()">Calcular</button>
+                      <input type="number" id="hectareas" value="3" class="form-control" placeholder="Digite la cantidad por metros²" min="0" step="0.5" required>
+                      <button class="btn bg-gradient-success float-lg-end mt-n5" onclick="calcularHerramientas()">Calcular</button>
                     </form>
                   </div>
                 </div>
@@ -283,7 +347,7 @@
     <section class="row mb-2 card opacity-9">
       <div class="container-fluid">
         <div class="row mb-3">
-          <h4 class="text-center mt-3 animate-text" id="animate-text1">SUGERENCIA DE HERRAMIENTAS PARA EL ANALISIS.</h4>
+          <h4 class="text-center mt-3 ">SUGERENCIA DE HERRAMIENTAS PARA EL ANALISIS.</h4>
           <div id="resultado">
             <div class="container">
               <div class="col-14 row" id="herramientas-lista">
@@ -399,7 +463,7 @@
               <tfoot>
                 <tr>
                   <td colspan="4">
-                    <strong>
+                    <strong  class="float-lg-end me-3">
                       <h4 class="mx-auto">Total:</h4>
                     </strong></td>
                   <td id="totalAmount">0</td>
