@@ -66,3 +66,4 @@ function resetForm(transactionType) {
     document.getElementById("pricePerUnitComprar").value = "";
     }
 }
+  
